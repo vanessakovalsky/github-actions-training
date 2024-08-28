@@ -26,11 +26,11 @@ Cet exercice a pour objectifs de :
 
 ## Initialiser le workflow 
 
-* Nous allons ajouter un workflow, pour cela cliquer sur l'onglet Actions de votre dépôt puis sur Nouveau Workflow
+* Nous allons ajouter un workflow, pour cela cliquer sur l'onglet Actions de votre dépôt 
 
 ![](./img/1_BaeHszbE9kJMPP-pLTrOqQ.webp)
 
-
+* puis sur Nouveau Workflow
 
 ![](./img/1_xUEGurCh0plFTbX5z8XCdg.webp)
 
