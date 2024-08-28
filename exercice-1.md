@@ -79,3 +79,5 @@ jobs:
       run: |
         pytest
 ```
+
+* Une fois le fichier enregistré, (commit) vous pouvez allez dans Actions et voir votre pipeline s'exécuté.
