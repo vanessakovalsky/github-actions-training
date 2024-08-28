@@ -81,3 +81,9 @@ jobs:
 ```
 
 * Une fois le fichier enregistré, (commit) vous pouvez allez dans Actions et voir votre pipeline s'exécuté.
+
+## Pour aller plus loin
+
+* Afin de comprendre le fonctionnement, vous avez un projet PHP disponible ici : https://github.com/vanessakovalsky/laravel-kingoludo/tree/master
+* Forker le projet et créer le workflow a partir du modèle PHP disponible dans Github Action.
+* Vous pouvez également prendre n'importe quel application existante et avec un dépôt disponible sur Github, de nombreux modèles existes pour de nombreux langages de programmation
