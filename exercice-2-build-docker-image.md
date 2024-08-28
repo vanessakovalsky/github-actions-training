@@ -75,3 +75,7 @@ Cet exerice a pour objectifs de :
   ![](img/0_CI0Ytvs07bTLuB9S.webp)
 
   * Vous savez maintenant construire une image de manière automatique à chaque push sur le dépôt et l'envoyer sur le docker hub.
+ 
+  ## Pour aller plus loin
+
+  * Dans le dépôt github que vous avez forker il y a un fichier build.gradle. Ajouter une étape à votre workflow pour effectuer le build de Gradle, voir la documentation disponible ici : https://github.com/gradle/actions/blob/main/docs/setup-gradle.md 
