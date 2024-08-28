@@ -34,3 +34,44 @@ Cet exerice a pour objectifs de :
 ![](img/0_RYbxyZ__vEgUffXG.webp)
 
 * Créer un autre secret de dépôt nommé DOCKERHUB_USERNAMEet insérez votre nom d'utilisateur Docker Hub.
+
+
+## Ajouter le build et le push a votre workflow github action
+
+* Modifier le fichier yaml de votre workflow et ajouter à la suite des étapes précédentes les étapes ci-dessous :
+
+```
+-
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: simplecloudquestions/example_docker:latest
+```
+
+* /!\ Remplacer simplecloudquestions/example_docker par votrenomdutilisateurdockerhub/lenomdevotrereposurdockerhub
+
+* Enregistrer votre fichier (commit)
+
+* Cela va déclenche le workflow, vous devriez voir dans l'onglet Actions un déroulé similaire à celui-ci :
+
+  ![](img/0_eaUvPbKEjmg5zvDL.webp)
+
+  * Attendre que le workflow se termine et aller sur le docker hub.
+  * Vous devriez avoir votre image qui a été poussé sur le dépôt DockerHub
+
+  ![](img/0_CI0Ytvs07bTLuB9S.webp)
+
+  * Vous savez maintenant construire une image de manière automatique à chaque push sur le dépôt et l'envoyer sur le docker hub.
