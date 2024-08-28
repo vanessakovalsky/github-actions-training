@@ -28,11 +28,11 @@ Cet exercice a pour objectifs de :
 
 * Nous allons ajouter un workflow, pour cela cliquer sur l'onglet Actions de votre dépôt puis sur Nouveau Workflow
 
-![](./img/)
+![](./img/1_BaeHszbE9kJMPP-pLTrOqQ.webp)
 
 
 
-![](./img/)
+![](./img/1_xUEGurCh0plFTbX5z8XCdg.webp)
 
 * Choisir alors Python application.
 
