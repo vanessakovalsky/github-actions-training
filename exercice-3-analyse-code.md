@@ -40,5 +40,35 @@ jobs:
 * Au-dessus du flux de travail, il n'y en a qu'un seul job un travail qui comporte 4 étapes:
   * actions/checkout@v1est nécessaire pour permettre au flux de travail GitHub Actions de savoir qu'il peut utiliser le code situé dans un référentiel,
   * Set up Python qui utilisent actions/setup-python@master pourconfigurer une version Python, dans notre cas, c'est python-version: 3.8.
-  * Wemake Python Styleguide c'est celui qui nous intéresse le plus. Il utilise l'action wemake-services/wemake-python-styleguide@0.13.4 qui est l'éléments de base atomiques des flux de travail. 
+  *  Wemake Python Styleguide c'est celui qui nous intéresse le plus. Il utilise l'action wemake-services/wemake-python-styleguide@0.13.4 qui est l'éléments de base atomiques des flux de travail. 
 Vous pouvez les trouver sur la place du marché GitHub (https://github.com/marketplace?type=actions), comme l'action mentionnée. Celui-ci est configuré ( withclause) à utiliser github-pr-review reporter qui permet les commentaires en ligne dans la révision du code. Enfin, ce flux de travail nécessite de passer votre GIHUB_TOKEN et c'est pourquoi la clause env est ajoutée.
+ 
+## Rapport de couverture de test
+
+* Ensuite, nous voulons avoir un rapport de test avec une couverture. Pour cela, nous utilisons à nouveau la bibliothèque unittest qui va la générer pour nous et ensuite nous la téléchargerons sur le Codecov qui se chargera de la visualiser.
+* Avant de définir un nouveau flux de travail, vous devez d'abord créer un compte sur Codecov. Par conséquent, allez sur https://codecov.io au bouton d'inscription situé en haut à droite.
+
+![](img/1_MMBYtkx0Z-1HlATPx0ArfA.webp)
+
+* Choisissez ensuite GitHub comme option d'inscription.
+
+![](img/1_NJHkpUiRpn43O8iCea_A3g.webp)
+
+* Ensuite, vous devez être amené à votre tableau de bord pour les projets GitHub, où vous devez cliquer sur le bouton Ajouter un nouveau référentiel.
+
+![](img/1_kTGrVQrfP2bc0vNYMkVm_g.webp)
+
+* Une liste de tous vos projets apparaîtra d'où vous pourrez choisir celui que vous voulez analyser.
+
+![](img/1_Lf1TwBwNHaciAT7oKDbYwg.webp)
+
+* Alors une page avec votre jeton apparaîtra. Sauvez-le, car nous l'utiliserons à l'étape suivante.
+
+![](img/1_LqtfLCklmIMs4b-upQjO1A.webp)
+
+* Revenez maintenant au projet sur GitHub et cliquez sur son bouton Paramètres. Il s'agit de Secrets, puis d'un nouveau secret où vous pouvez fournir le jeton que vous avez généré sur le site web de Codecov. Pour le finaliser, cliquez sur Ajouter secret.
+
+![](img/1_Hj_Eixz_dxTa29kol9135g.webp)
+
+Ok, tout est mis en place, donc nous pouvons passer à la définition du flux de travail GitHub.
+
