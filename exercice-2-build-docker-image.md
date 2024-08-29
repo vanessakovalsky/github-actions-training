@@ -59,7 +59,7 @@ Cet exerice a pour objectifs de :
         context: app
 ```
 
-* /!\ Remplacer simplecloudquestions/example_docker par votrenomdutilisateurdockerhub/lenomdevotrereposurdockerhub
+* /!\ Remplacer vanessakovalsky/python-flask-app-github par votrenomdutilisateurdockerhub/lenomdevotrereposurdockerhub
 
 * Enregistrer votre fichier (commit)
 
