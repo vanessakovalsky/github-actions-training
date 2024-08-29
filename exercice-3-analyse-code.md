@@ -70,5 +70,34 @@ Vous pouvez les trouver sur la place du marché GitHub (https://github.com/marke
 
 ![](img/1_Hj_Eixz_dxTa29kol9135g.webp)
 
-Ok, tout est mis en place, donc nous pouvons passer à la définition du flux de travail GitHub.
+* Ok, tout est mis en place, donc nous pouvons passer à la définition du flux de travail GitHub. Ajouter à votre workflow les étapes suivantes :
 
+```
+- name: Run unit tests
+        run: |
+          pip install html-testRunner coverage
+          cd app
+          python -m unittest test/unit/test.py
+          python -m coverage run -m unittest test/unit/test.py
+          python -m coverage xml
+      - name: Wemake Python Stylguide
+        uses: wemake-services/wemake-python-styleguide@0.13.4
+        continue-on-error: true
+        with:
+          reporter: 'github-pr-review'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+```
+* Pour le tester, vous devez pousser certains commet à la masterbranche. Cela peut se faire directement à partir de votre dépôt local ou en fusionnant une demande d'extraction. Si tout allait bien, il devrait aimer ceci:
+
+![](img/1_gumgmfhD3Eg2zgmnXHE2Gg.webp)
+
+* Maintenant, si vous retournez au codecov jusqu'au tableau de bord de votre projet, vous devriez voir une sortie similaire :
+
+![](img/1_HnlSqqitHJ2ixmGCL3posA.webp)
