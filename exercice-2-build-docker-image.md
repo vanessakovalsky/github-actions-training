@@ -41,24 +41,22 @@ Cet exerice a pour objectifs de :
 * Modifier le fichier yaml de votre workflow et ajouter à la suite des étapes précédentes les étapes ci-dessous :
 
 ```
--
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      -
-        name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: simplecloudquestions/example_docker:latest
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: vanessakovalsky/python-flask-app-github:latest
+        file: docker-app/python/Dockerfile
+        context: app
 ```
 
 * /!\ Remplacer simplecloudquestions/example_docker par votrenomdutilisateurdockerhub/lenomdevotrereposurdockerhub
