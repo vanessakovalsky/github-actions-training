@@ -80,13 +80,6 @@ Vous pouvez les trouver sur la place du marché GitHub (https://github.com/marke
           python -m unittest test/unit/test.py
           python -m coverage run -m unittest test/unit/test.py
           python -m coverage xml
-      - name: Wemake Python Stylguide
-        uses: wemake-services/wemake-python-styleguide@0.13.4
-        continue-on-error: true
-        with:
-          reporter: 'github-pr-review'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
